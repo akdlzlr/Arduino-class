@@ -78,13 +78,13 @@ void loop() {
     for(int i=9; i<12;i++){
       for(int j=0; j<=255; j++){
         analogWrite(i,j);
-        delay(20);
+        delay(5);
       }
     }
      for(int i=11; i>8;i--){
       for(int j=255; j>=0; j--){
         analogWrite(i,j);
-        delay(20);
+        delay(5);
       }
     }
   }
