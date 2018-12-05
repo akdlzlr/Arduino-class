@@ -1,12 +1,12 @@
 enum piano{
-  DO = 262,
-  RE = 294,
-  MI = 330,
-  FA = 349,
-  SOL = 392,
-  RA = 440,
-  SI = 494,
-  DO2 = 523
+  DO = 523,
+  RE = 587,
+  MI = 659,
+  FA = 698,
+  SOL = 784,
+  RA = 880,
+  SI = 988,
+  DO2 = 1047
 };
 
 int melody[] = {
@@ -23,8 +23,8 @@ int melody[] = {
 void setup() {
   // put your setup code here, to run once:
   for( int i =0; i<sizeof(melody)/sizeof(int);i++){
-    tone(9,melody[i],100);
-    delay(150);
+    tone(9,melody[i],200);
+    delay(200);
     noTone(9);
   }
 }
