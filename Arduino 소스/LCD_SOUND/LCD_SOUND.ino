@@ -12,6 +12,7 @@ void setup() {
   lcd.home();
   lcd.setCursor(0,1);
   lcd.print("(-O-)");
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -22,4 +23,5 @@ void loop() {
   if(sound_value>=1000){
     lcd.scrollDisplayRight();
   }
+  delay(20);
 }
