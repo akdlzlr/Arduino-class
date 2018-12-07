@@ -19,6 +19,8 @@ byte digits[10][7] =
 int cnt=0;
 int num=0;
 int num2=0;
+int val1=num%10;
+int val2=(num/10)%10;
 boolean start=false;
 
 void setup() {
@@ -46,65 +48,64 @@ void loop() {
   int c=digitalRead(A3);
   int d=digitalRead(A2);
 
-  if(a=HIGH){
+  if(a==HIGH){
     num2--;
     if(num2<0){
       num2=0;
+      Serial.println(a);
+      delay(400);
     }
   }
-  if(b=HIGH){
+  if(b==HIGH){
     num2++;
     if(num2>60){
       num2=0;
     }
+    Serial.println(b);
+    delay(400);
   }
-   if(c=HIGH){
+   if(c==HIGH){
     start=true;
+    delay(400);
+    Serial.println(c);
+    Serial.println("start : ");
+    Serial.println(start);
   }
-   if(d=HIGH){
+   if(d==HIGH){
     num=0;
     start=false;
+    Serial.println(d);
+    Serial.println("start : ");
+    Serial.println(start);
+    delay(400);
   }
-  Serial.println(a);
-    Serial.println(b);
-      Serial.println(c);
-        Serial.println(d);
-          Serial.println("---------");
-  if(cnt==1000){
+
+  if(cnt==250){
     if(start == true){
         num++;
      }
     cnt=0;
   }
 
-  int val1=num%10;
-  int val2=(num/10)%10;
-
   if(start==true){
-  if(cnt%5 ==0){
     selSeg(2);
     displayDigit(val2);
     delay(1);
-  }
-  if(cnt%5==1){
+
     selSeg(3);
     displayDigit(val1);
     delay(1);
-  }
-    if(cnt%5 ==2){
+
     selSeg(0);
     displayDigit((num2/10)%10);
     delay(1);
-  }
-  if(cnt%5==4){
+
     selSeg(1);
     displayDigit(num2%10);
     delay(1);
+    
+    cnt++;
   }
-  cnt++;
-  }
-
-  delay(1000);
 }
 
 void displayDigit(int num){
